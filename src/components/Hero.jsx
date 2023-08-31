@@ -8,7 +8,8 @@ const Hero = () => {
   useEffect(() => {
     axios
       .get(requests.requestNowPlaying)
-      .then((res) => setMovies(res.data.results));
+      .then((res) => setMovies(res.data.results))
+      .catch((err) => console.log(err));
   }, []);
 
   const movie = movies[Math.floor(Math.random() * movies.length)];
