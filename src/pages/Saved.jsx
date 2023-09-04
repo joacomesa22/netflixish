@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../firebase-config";
 import { collection, onSnapshot } from "firebase/firestore";
+import Hero from "../components/Hero";
 
 const Saved = () => {
   const [savedMovies, setSavedMovies] = useState([]);
@@ -15,7 +16,6 @@ const Saved = () => {
             id: doc.id,
           }));
           setSavedMovies(filteredData);
-          console.log("RENDEREEEED");
         });
       } catch (err) {
         console.log(err);
@@ -25,11 +25,11 @@ const Saved = () => {
   }, []);
 
   return (
-    <div>
+    <>
       {savedMovies.map((movie) => {
         return <h1 key={movie.id}>{movie.title}</h1>;
       })}
-    </div>
+    </>
   );
 };
 

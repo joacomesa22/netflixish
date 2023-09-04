@@ -58,22 +58,23 @@ const Movie = ({ movie }) => {
         <p className="white-space-normal text-xs md:text-sm font-bold flex justify-center items-center h-full text-center">
           {movie?.title}
         </p>
+
+        {isSaved ? (
+          <FaHeart
+            className="absolute top-4 left-4 text-[var(--fucsia)] cursor-pointer hover:scale-125 duration-300"
+            onClick={() => {
+              removeMovie(movie.id);
+            }}
+          />
+        ) : (
+          <FaRegHeart
+            className="absolute top-4 left-4 text-[var(--white)] cursor-pointer hover:scale-125 duration-300"
+            onClick={() => {
+              saveMovie(movie.id, movie.title, movie.backdrop_path);
+            }}
+          />
+        )}
       </div>
-      {isSaved ? (
-        <FaHeart
-          className="absolute top-4 left-4 text-[var(--fucsia)] cursor-pointer hover:scale-125 duration-300"
-          onClick={() => {
-            removeMovie(movie.id);
-          }}
-        />
-      ) : (
-        <FaRegHeart
-          className="absolute top-4 left-4 text-[var(--white)] cursor-pointer hover:scale-125 duration-300"
-          onClick={() => {
-            saveMovie(movie.id, movie.title, movie.backdrop_path);
-          }}
-        />
-      )}
     </div>
   );
 };
