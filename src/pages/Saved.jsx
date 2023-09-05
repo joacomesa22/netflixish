@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../firebase-config";
 import { collection, onSnapshot } from "firebase/firestore";
-import Hero from "../components/Hero";
+import Movie from "../components/Movie";
 
 const Saved = () => {
   const [savedMovies, setSavedMovies] = useState([]);
@@ -25,11 +25,14 @@ const Saved = () => {
   }, []);
 
   return (
-    <>
-      {savedMovies.map((movie) => {
-        return <h1 key={movie.id}>{movie.title}</h1>;
-      })}
-    </>
+    <div className="flex flex-col items-center gap-4 p-4">
+      <h3 className="text-2xl">Saved Movies</h3>
+      <div className="flex justify-center flex-wrap gap-y-2">
+        {savedMovies.map((movie) => {
+          return <Movie key={movie.id} movie={movie} />;
+        })}
+      </div>
+    </div>
   );
 };
 
