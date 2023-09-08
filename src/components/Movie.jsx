@@ -7,13 +7,13 @@ import {
   deleteDoc,
   doc,
   getDocs,
-  query,
-  where,
 } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
-const Movie = ({ movie }) => {
+const Movie = ({ movie, rowID }) => {
   const [isSaved, setIsSaved] = useState(false);
   const savedMoviesRef = collection(db, "savedMovies");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getAllSavedMovies = async () => {
@@ -54,7 +54,12 @@ const Movie = ({ movie }) => {
         alt={movie?.title}
         className="w-full h-full object-cover"
       />
-      <div className="absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 duration-300">
+      <div
+        className="absolute top-0 left-0 w-full h-full hover:bg-black/80 opacity-0 hover:opacity-100 duration-300"
+        onClick={() => {
+          navigate("/movie/" + movie.id);
+        }}
+      >
         <p className="white-space-normal text-xs md:text-sm font-bold flex justify-center items-center h-full text-center">
           {movie?.title}
         </p>
