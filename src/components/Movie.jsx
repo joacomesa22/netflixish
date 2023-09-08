@@ -48,7 +48,10 @@ const Movie = ({ movie, rowID }) => {
   };
 
   return (
-    <div className="max-w-[300px] inline-block px-1 relative" key={movie?.id}>
+    <div
+      className="max-w-[300px] inline-block px-1 relative cursor-pointer"
+      key={movie?.id}
+    >
       <img
         src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
         alt={movie?.title}
@@ -66,15 +69,17 @@ const Movie = ({ movie, rowID }) => {
 
         {isSaved ? (
           <FaHeart
-            className="absolute top-4 left-4 text-[var(--fucsia)] cursor-pointer hover:scale-125 duration-300"
-            onClick={() => {
+            className="absolute top-4 left-4 text-[var(--fucsia)] cursor-pointer hover:scale-125 duration-300 "
+            onClick={(e) => {
+              e.stopPropagation();
               removeMovie(movie.id);
             }}
           />
         ) : (
           <FaRegHeart
-            className="absolute top-4 left-4 text-[var(--white)] cursor-pointer hover:scale-125 duration-300"
-            onClick={() => {
+            className="absolute top-4 left-4 text-[var(--white)] cursor-pointer hover:scale-125 duration-300 "
+            onClick={(e) => {
+              e.stopPropagation();
               saveMovie(movie.id, movie.title, movie.backdrop_path);
             }}
           />
