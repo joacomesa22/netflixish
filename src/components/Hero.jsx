@@ -22,7 +22,7 @@ const Hero = () => {
     }
   };
   return (
-    <div className="w-full h-[80vh] relative">
+    <div className="w-full h-[80vh] relative border-b border-[var(--fucsia)]">
       <div className="absolute w-full h-full bg-gradient-to-r from-[var(--black)]"></div>
       <img
         src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
