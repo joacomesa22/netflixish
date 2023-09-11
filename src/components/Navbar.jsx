@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/img/netflixish-logo.png";
+import { FaHeart } from "react-icons/fa";
 
 const Navbar = () => {
   return (
@@ -11,9 +12,9 @@ const Navbar = () => {
       <div className="flex justify-center items-center gap-5">
         <Link
           to="/saved"
-          className="px-4 py-2 bg-[var(--fucsia)] hover:bg-[var(--fucsiaDarker)] hover:text-[--white] duration-300"
+          className="w-[50px] h-[50px] rounded-[50%] flex justify-center items-center bg-[var(--fucsia)] hover:bg-[var(--fucsiaDarker)] hover:text-[--white] duration-300"
         >
-          Saved
+          <FaHeart size={"20px"} />
         </Link>
       </div>
     </div>

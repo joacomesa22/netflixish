@@ -29,12 +29,14 @@ const Hero = () => {
         alt={movie?.title}
         className="w-full h-full object-cover"
       />
-      <div className="absolute top-1/2 transform -translate-y-1/2 max-w-[660px] flex flex-col gap-4 px-10">
+      <div className="absolute top-1/2 transform -translate-y-1/2 max-w-[660px] flex flex-col gap-4 px-6 md:px-10">
         <p className="text-sm text-[var(--grey)]">
           Released {movie?.release_date}
         </p>
-        <h1 className="text-6xl font-bold">{movie?.title}</h1>
-        <p>{truncateString(movie?.overview, 120)}</p>
+        <h1 className="text-4xl md:text-5xl font-bold">{movie?.title}</h1>
+        <p className="text-sm md:text-base">
+          {truncateString(movie?.overview, 120)}
+        </p>
         <div className="flex gap-4">
           <button className="px-6 py-2 bg-[var(--fucsia)] hover:bg-[var(--fucsiaDarker)] hover:text-[--white] duration-300">
             Play
