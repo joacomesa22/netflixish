@@ -25,11 +25,11 @@ const Saved = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center gap-10 pt-24 pb-6">
+    <div className="flex flex-col items-center gap-10 pt-24 pb-6 h-screen">
       <div className="px-4">
         <h1 className="text-4xl md:text-5xl font-bold">Saved Movies</h1>
       </div>
-      <div className="flex justify-center flex-wrap gap-y-2">
+      <div className="flex justify-center flex-wrap gap-y-2 max-w-[1200px]">
         {savedMovies.map((movie) => {
           return <Movie key={movie.id} movie={movie} />;
         })}
